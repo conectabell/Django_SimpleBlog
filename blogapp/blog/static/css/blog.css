@@ -1,11 +1,21 @@
 @font-face {
-    font-family: TituloPersFont;
-    src: url('/static/css/fuentes/TH3MACHINE.ttf?#') format('truetype');
+    font-family: FuenteTitulo;
+    src: url('/static/fonts/GillieHilda.ttf?#') format('truetype');
 }
 
 @font-face {
-    font-family: Fuente1Prueba;
-    src: url('/static/css/fuentes/ChronicDeal.ttf?#') format('truetype');
+    font-family: FuenteMenu;
+    src: url('/static/fonts/ChampagneBold.ttf?#') format('truetype');
+}
+
+@font-face {
+    font-family: FuenteContenido;
+    src: url('/static/fonts/Champagne.ttf?#') format('truetype');
+}
+
+@font-face {
+    font-family: FuenteAMano;
+    src: url('/static/fonts/TrueBlue.otf?#') format('opentype');
 }
 
 body{
@@ -13,17 +23,24 @@ body{
     }
 
 h1{
-    font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+    font-family: FuenteTitulo;
     color: #ff860b;
     font-weight: 200;
     left: 50px;
     }
 
 h2{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: FuenteAMano;
     font-size: 22px;
     color: #ff860b;
     }
+
+h3{
+    font-family: FuenteMenu;
+    font-size: 18px;
+    color: #A79787;
+    }
+
 h4{
    font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
 	text-decoration: none;
@@ -76,7 +93,7 @@ p { font-family: Arial, Helvetica, sans-serif;
   position: relative;
   display: block;
   font-size: 12px;
-  font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-family: FuenteMenu;
   margin: 0;
   padding: 0;
   border-bottom: 1px solid #F87604;
@@ -104,6 +121,7 @@ p { font-family: Arial, Helvetica, sans-serif;
   height: 24px;
   padding: 9px 15px 0;
   font-weight: normal;
+  font-family: FuenteMenu;
 }
 #cssmenu li:hover,
 #cssmenu .active {
@@ -367,9 +385,8 @@ border-bottom-right-radius: 15px;
 
 .subtitulo > p {
 position: relative;
-font-family: Andale Mono, monospace;
-font-size: 27px;
-font-weight: bold;
+font-family: FuenteContenido;
+font-size: 45px;
 color: #FF6E08;
 left:12%
 }
@@ -397,14 +414,16 @@ left: 10%;
 }
 
 .post-form > p > input {
-font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+font-family: FuenteContenido;
+font-size: 25px;
 width: 85%;
 left: 10%;
-height: 25;
+height: 35px;
 }
 
 .post-form > p > textarea {
-font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+font-family: FuenteContenido;
+font-size: 25px;
 width: 85%;
 left: 2%;
 position: relative;
