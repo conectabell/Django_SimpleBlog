@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<head>
+<title>Notas del programador</title>
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<body>
+<div class="titulazo">
+    <h1>Sectesting - Cuaderno de Bitácora</h1>
+</div>
+<div id='cssmenu'>
+<ul>
+   <li><a href="{% url 'pruebas1.views.post_list' %}"><span>Principal</span></a></li>
+   <li><a href="{% url 'pruebas1.views.post_new' %}"><span>Nuevo Post</span></a></li>
+   <li><a href='#'><span>Company</span></a></li>
+   <li class='last'><a href='#'><span>Contact</span></a></li>
+</ul>
+</div>
+<div id='cssmenu2'>
+<ul>
+	<li class='active'><a href='#'><span>Posts</span></a></li>
+    {% for post in posts %}
+        <li><a href="{% url 'pruebas1.views.post_detail' pk=post.pk %}"><span>{{ post.title }}</span></a></li>
+    {% endfor %}
+   <li class='last'><a href='#'><span>Contact</span></a></li>
+</ul>
+</div>
+
+<div>
+{% block content %}
+{% endblock %}
+</div>
+<div>
+<h3>Sitio creado por Antonio Coronado</h3>
+</div>
+</body>

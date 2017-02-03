@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+    {% block content %}
+    <div>
+		<div class="boxpost">
+            <h2><a href="{% url 'blog.views.post_detail' pk=post.pk %}">{{ post.title }}</a> </h2>
+            <h4>Publicado: {{ post.published_date }} por {{post.author}}<br>
+            {{ post.text|linebreaks }}</h4>
+        </div>
+        <a href="{% url 'post_edit' pk=post.pk %}" class="myButton">Editar</a>
+        </div>
+    {% endblock %}

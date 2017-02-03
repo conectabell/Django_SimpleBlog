@@ -1,0 +1,4 @@
+python manage.py syncdb
+python manage.py makemigrations sectesting
+python manage.py migrate sectesting
+
