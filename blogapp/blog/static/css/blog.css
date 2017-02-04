@@ -325,15 +325,17 @@ top: 3px;
 text-decoration: none;
 font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
 font-size: 12px;
+text-align: right;
 padding-top: 5px;
+padding-right: 25px;
 margin-top: -15px;
 margin-left: 5px;
 margin-right: 5px;
 margin-bottom: -5px;
-background: #4D4646;
-border-radius: 4px 4px 25px 25px;
--moz-border-radius: 4px 4px 25px 25px;
--webkit-border-radius: 4px 4px 25px 25px;
+background: #47403b;
+border-radius: 4px 4px 4px 4px;
+-moz-border-radius: 4px 4px 4px 4px;
+-webkit-border-radius: 4px 4px 4px 4px;
 border: 0px solid #000000;
 font-style: none;
 text-indent: 10px;
@@ -431,5 +433,37 @@ position: relative;
 -moz-border-radius: 9px;
 border-radius: 9px;
 }
+
+.md-text {
+font-family: FuenteMenu;
+text-decoration: none;
+font-size: 12px;
+padding-top: 5px;
+margin-top: -10px;
+margin-left: 5px;
+margin-right: 5px;
+margin-bottom: 0.5%;
+padding-bottom: 25px;
+border-bottom: 4px solid;
+background: #4D4646;
+border-radius: 4px 4px 25px 25px;
+-moz-border-radius: 4px 4px 25px 25px;
+-webkit-border-radius: 4px 4px 25px 25px;
+border: 0px solid #000000;
+font-style: none;
+text-indent: 10px;
+color: #8E8E8E;
+position: relative;
+    }
+
+.md-text > h1 {
+font-family: FuenteMenu;
+font-size: 43px;
+    }
+
+.md-text > h2 {
+font-family: FuenteMenu;
+font-size: 28px;
+    }
 
 
