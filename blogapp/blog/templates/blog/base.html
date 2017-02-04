@@ -1,9 +1,12 @@
 {% load staticfiles %}
+{% load static %}
 <head>
 <title>Notas del programador</title>
+{% block head_extra %}
+{% endblock head_extra %}
 <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </head>
-<body>
+<body class="body">
 <div class="titulazo">
     <h1>Bitácora - a Simple Blog</h1>
 </div>
@@ -26,7 +29,7 @@
 <br>
 <div>
 {% block content %}
-{% endblock %}
+{% endblock content %}
 </div>
 <div>
 <h3>Blog creado por Charlie para <a href="https://conectabell.com"> Conectabell.com</a></h3>
