@@ -410,10 +410,11 @@ background-color: #121212;
 -moz-border-radius: 15px;
 border-radius: 15px;
 padding: 20px;
+align-items: left;
 }
 
 .post-form > p > label {
-display: none;
+/*display: none;*/
 font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
 font-size: 20px;
 font-weight: bold;
@@ -430,8 +431,48 @@ left: 2.5%;
 position: relative;
 }
 
+.post-form > p > input[name|=crypt] {
+font-family: FuenteContenido;
+font-size: 25px;
+width: 0%;
+height: 12px;
+left: 0%;
+position: relative;
+}
+
+.post-form > p > input[name|=key] {
+font-family: FuenteContenido;
+font-size: 25px;
+width: 60%;
+height: 35px;
+left: 17%;
+position: relative;
+}
+
+.post-form > p > input[name|=rekey] {
+font-family: FuenteContenido;
+font-size: 25px;
+width: 60%;
+height: 35px;
+right: 0%;
+position: relative;
+}
+
 .post-form > p > textarea {
 font-family: FuenteContenido;
+font-size: 25px;
+width: 85%;
+left: 2%;
+position: relative;
+-webkit-border-radius: 9px;
+-moz-border-radius: 9px;
+border-radius: 9px;
+}
+
+.errorlist, .errorlist > li{
+list-style: none;
+font-family: FuenteMenu;
+color: red;
 font-size: 25px;
 width: 85%;
 left: 2%;
@@ -491,8 +532,11 @@ font-size: 28px;
 {
 	height: 300px;
 	width: 100%;
-	background-color: Gainsboro;
+	background-color: black;
 	border: 1px solid DarkGray;
+	border-radius: 5px;
+	font-family: FuenteContenido;
+	font-size: 22px;
 }
 
 .wmd-preview
@@ -518,7 +562,7 @@ font-size: 28px;
 	margin-left: 14px;
 	
 	position: absolute;
-	background-color: Silver;
+	background-color: red;
 	display: inline-block;
 	list-style: none;
 }
@@ -535,7 +579,9 @@ font-size: 28px;
 }
 
 .wmd-button > span {
-    background-image: url(../pagedown/wmd-buttons.png);
+    background-image: url(../pagedown/wmd-buttons2.png);
+    background-color: red;
+    border-radius: 2px;
     background-repeat: no-repeat;
     background-position: 0px 0px;
     width: 20px;

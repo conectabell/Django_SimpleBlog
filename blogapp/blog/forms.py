@@ -5,7 +5,29 @@ from pagedown.widgets import PagedownWidget
 
 
 class PostForm(forms.ModelForm):
-    text = forms.CharField(widget=PagedownWidget())
+    text = forms.CharField(widget=PagedownWidget(show_preview=False), label='')
+    crypt = forms.NullBooleanField(label="Cifrar", initial=False)
+
+
     class Meta:
         model = Post
-        fields = ('title', 'text',)
+        fields = ('title', 'text', 'crypt', 'key', 'rekey',)
+        labels = {'title': '', 'key': 'Password', 'rekey':'Repite password', }
+        widgets = {
+        'key': forms.PasswordInput(),
+        'rekey': forms.PasswordInput(), }
+
+    def clean(self):
+        cleaned_data = super(PostForm, self).clean()
+        crypt = cleaned_data.get('crypt')
+        if crypt is True:
+            password = cleaned_data.get('key')
+            password_confirm = cleaned_data.get('rekey')
+            if password and password_confirm:
+                if password != password_confirm:
+                    raise forms.ValidationError("Las dos contraseñas deben coincidir")
+        return cleaned_data
+
+
+class KeyCheckForm(forms.Form):
+    passw = forms.CharField(label='Introduzca la key')
