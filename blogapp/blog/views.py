@@ -1,13 +1,15 @@
 from django.shortcuts import render
-from django.template import RequestContext
+#from django.template import RequestContext
 from django.utils import timezone
 from .models import Post
 from .forms import PostForm, KeyCheckForm
 from .libs import crypt
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-import hashlib
+import hashlib, sys
 #import markdown
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 INI = {"title": "Titulo de la entrada.", "key": "Password", "rekey": "Repita la Password"}
 

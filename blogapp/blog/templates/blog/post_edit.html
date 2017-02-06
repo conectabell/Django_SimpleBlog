@@ -1,6 +1,7 @@
 {% extends 'blog/base.html' %}
 {% block head_extra %}
 {{ form.media }}
+{% include "charsleft_widget/charsleft_widget_css.html" %}
 {% endblock head_extra %}
 
 {% block content %}
@@ -11,5 +12,6 @@
         {{ form.as_p }}
         <button type="submit" class="myButton">Postea!</button>
     </form>
+{% include "charsleft_widget/charsleft_widget_js.html" %}
 {% endblock %}
 

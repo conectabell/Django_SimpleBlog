@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% block head_extra %}
+{{ form.media }}
+{% endblock head_extra %}
+
+{% block content %}
+    <div class="subtitulo">
+	<p>Edición de post</p>
+	</div>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="myButton">Comprobar</button>
+    </form>
+{% endblock %}

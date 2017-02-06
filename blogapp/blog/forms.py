@@ -2,6 +2,9 @@
 from django import forms
 from .models import Post
 from pagedown.widgets import PagedownWidget
+#from charsleft_widget.widgets import CharsLeftInput
+from charsleft_widget import CharsLeftArea
+
 
 
 class PostForm(forms.ModelForm):
@@ -15,7 +18,9 @@ class PostForm(forms.ModelForm):
         labels = {'title': '', 'key': 'Password', 'rekey':'Repite password', }
         widgets = {
         'key': forms.PasswordInput(),
-        'rekey': forms.PasswordInput(), }
+        'rekey': forms.PasswordInput(),
+        'text': CharsLeftArea(),
+        'title': CharsLeftArea(), }
 
     def clean(self):
         cleaned_data = super(PostForm, self).clean()
@@ -30,4 +35,4 @@ class PostForm(forms.ModelForm):
 
 
 class KeyCheckForm(forms.Form):
-    passw = forms.CharField(label='Introduzca la key')
+    passw = forms.CharField(label='Contraseña', widget=forms.PasswordInput())

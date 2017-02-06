@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     #'django_extensions',
     'markdown_deux',
     'pagedown',
+    'charsleft_widget',
     'blog',
 )
 
