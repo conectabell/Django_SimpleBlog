@@ -17,6 +17,8 @@ INI = {"title": "Titulo de la entrada.", "key": "Password", "rekey": "Repita la 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=
         timezone.now()).order_by('published_date')
+    if "keytmp" in request.session:
+        del request.session['keytmp']
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 
@@ -100,14 +102,16 @@ def post_edit(request, pk, key=None):
         else:
             print "Post-Edit: No es un metodo POST- Devuelve Formulario con post extraido de la pk"
             if post.crypt == "1":
-                if request.session['keytmp']:
+                if "keytmp" in request.session:
                     print "KEYTMP: " + request.session['keytmp']
+                    cifr = crypt.AESCipher(request.session['keytmp'])
+                    txt_dec = cifr.decrypt(post.text)
+                    post.text = txt_dec
+                    form = PostForm(instance=post)
                 else:
                     print "KEYTMP: NO HAY"
-                cifr = crypt.AESCipher(request.session['keytmp'])
-                txt_dec = cifr.decrypt(post.text)
-                post.text = txt_dec
-                form = PostForm(instance=post)
+                    return redirect('blog.views.key_check', pk=post.pk)
+                
             else:
                 form = PostForm(instance=post)
             #return redirect('blog.views.post_edit', pk=post.pk, form=)
