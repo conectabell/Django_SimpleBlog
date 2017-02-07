@@ -29,7 +29,7 @@ def post_new(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            if post.crypt == True:
+            if post.crypt == "1":
                 cifr = crypt.AESCipher(post.key)
                 txt_enc = cifr.encrypt(post.text)
                 post.text = txt_enc
@@ -68,7 +68,7 @@ def post_edit(request, pk, key=None):
             print "__POST2_CRYPT: "
             #print form.cleaned_data['crypt']
             if form.is_valid():
-                if form.cleaned_data['crypt'] is True:
+                if form.cleaned_data['crypt'] == "1":
                     print "CRYPT IS TRUE"
                     cifr = crypt.AESCipher(form.cleaned_data['key'])
                     txt_enc = cifr.encrypt(form.cleaned_data['text'])
@@ -99,7 +99,7 @@ def post_edit(request, pk, key=None):
                 return render(request, 'blog/post_edit.html', {'form': form, 'posts': posts})
         else:
             print "Post-Edit: No es un metodo POST- Devuelve Formulario con post extraido de la pk"
-            if post.crypt is True:
+            if post.crypt == "1":
                 if request.session['keytmp']:
                     print "KEYTMP: " + request.session['keytmp']
                 else:
@@ -122,7 +122,7 @@ def post_detail(request, pk):
         posts = Post.objects.filter(published_date__lte=
         timezone.now()).order_by('published_date')
         post = get_object_or_404(Post, pk=pk)
-        if post.crypt is True:
+        if post.crypt == "1":
             return redirect('blog.views.key_check', pk=post.pk)
         else:
             return render(request, 'blog/post_detail.html', {'post': post,
@@ -181,11 +181,11 @@ def key_check_edit(request, pk):
                     print "TEXT-DEC-----"
                     print txt_dec
                     post.text = txt_dec
-                    post.crypt = False
+                    post.crypt = "0"
                     print post.crypt
                     form2 = PostForm(instance=post)
                     form2.text = txt_dec
-                    form2.crypt = False
+                    form2.crypt = "0"
                     print form2
                     request.session['keytmp'] = p
                     #form2.save()

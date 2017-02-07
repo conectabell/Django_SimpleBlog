@@ -362,6 +362,95 @@ color: #BDBDBD;
 padding-bottom: 15px;
 }
 
+.boxpost-list {
+position: relative;
+left: 10%;
+margin: 10px;
+min-width: 400px;
+max-width: 70%;
+background: #151515;
+border-style: solid;
+border-width: 3px;
+border-color: #6B6B6B;
+-webkit-border-radius: 30px;
+-webkit-border-top-right-radius: 5px;
+-moz-border-radius: 30px;
+-moz-border-radius-topright: 5px;
+border-radius: 30px;
+border-top-right-radius: 5px;
+}
+
+.boxpost-list > h2 {
+text-decoration: none;
+font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+text-align: center;
+height: 30px;
+margin-top: 5px;
+margin-left: 5px;
+margin-right: 5px;
+background: #383636;
+border-radius: 25px 4px 4px 4px;
+-moz-border-radius: 25px 4px 4px 4px;
+-webkit-border-radius: 25px 4px 4px 4px;
+border: 0px solid #000000;
+padding-left: 50px;
+font-style: none;
+}
+
+.boxpost-list > h2 > a {
+position: relative;
+font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+top: 3px;
+}
+
+
+.boxpost-list > h4 > img, .boxpost-list > h4 > a > img {
+position: relative;
+font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+width: 18px;
+height: 18px;
+padding-left: 7px;
+padding-right: 7px;
+right: 2%;
+}
+
+.boxpost-list > h4 {
+text-decoration: none;
+font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+font-size: 12px;
+text-align: right;
+padding-bottom: 5px;
+padding-top: 5px;
+padding-right: 25px;
+margin-top: -15px;
+margin-left: 5px;
+margin-right: 5px;
+margin-bottom: 5px;
+background: #47403b;
+border-radius: 4px 4px 25px 25px;
+-moz-border-radius: 4px 4px 25px 25px;
+-webkit-border-radius: 4px 4px 25px 25px;
+border: 0px solid #000000;
+font-style: none;
+text-indent: 10px;
+color: #8E8E8E;
+}
+
+.boxpost-list > h4 > p {
+text-decoration: none;
+font-size: 16px;
+font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+background: #4D4646;
+border-radius: 4px 4px 25px 25px;
+-moz-border-radius: 4px 4px 25px 25px;
+-webkit-border-radius: 4px 4px 25px 25px;
+border: 0px solid #000000;
+font-style: none;
+text-indent: 20px;
+color: #BDBDBD;
+padding-bottom: 15px;
+}
+
 .titulazo{
 font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
 font-size: 32px;
