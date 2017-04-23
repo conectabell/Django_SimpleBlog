@@ -28,6 +28,7 @@
 </ul>
 </div>
 <br>
+{% if msg %}<div><h3 style="color:red;text-align:center;">{{ msg }}</h3></div>{% endif %}
 <div>
 {% block content %}
 {% endblock content %}

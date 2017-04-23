@@ -16,7 +16,7 @@ INI = {"title": "Titulo de la entrada.", "key": "Password", "rekey": "Repita la 
 @login_required(login_url='django.contrib.auth.views.login')
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=
-        timezone.now()).order_by('published_date')
+        timezone.now()).order_by('-published_date')
     if "keytmp" in request.session:
         del request.session['keytmp']
     return render(request, 'blog/post_list.html', {'posts': posts})
@@ -110,8 +110,7 @@ def post_edit(request, pk, key=None):
                     form = PostForm(instance=post)
                 else:
                     print "KEYTMP: NO HAY"
-                    return redirect('blog.views.key_check', pk=post.pk)
-                
+                    return redirect('blog.views.key_check_edit', pk=post.pk)
             else:
                 form = PostForm(instance=post)
             #return redirect('blog.views.post_edit', pk=post.pk, form=)
@@ -139,6 +138,17 @@ def post_detail(request, pk):
 
 
 @login_required(login_url='django.contrib.auth.views.login')
+def post_delete(request, pk):
+    posts = Post.objects.filter(published_date__lte=
+        timezone.now()).order_by('published_date')
+    Post.objects.filter(id=pk).delete()
+    if "keytmp" in request.session:
+        del request.session['keytmp']
+    msg = "Post Eliminado"
+    return render(request, 'blog/post_list.html', {'posts': posts, 'msg': msg})
+
+
+@login_required(login_url='django.contrib.auth.views.login')
 def key_check(request, pk):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     post = get_object_or_404(Post, pk=pk)
@@ -157,6 +167,12 @@ def key_check(request, pk):
                 request.session['keytmp'] = p
                 return render(request, 'blog/post_detail.html', {'post': post ,
                                                     'posts': posts})
+            else:
+                msg = str("Password Incorrecto, introduzca uno valido.").decode('utf-8')
+                form = KeyCheckForm()
+                return render(request, 'blog/key_check.html', {'form': form ,
+                                                            'posts': posts,
+                                                            'msg': msg})
     form = KeyCheckForm()
     return render(request, 'blog/key_check.html', {'form': form ,
                                                     'posts': posts})
@@ -198,6 +214,13 @@ def key_check_edit(request, pk):
                     #return post_edit(request, pk=post.pk, key=p)
                     return render(request, 'blog/post_edit.html', {'form': form2, 'posts': posts})
                     #return post_edit(request, )
+                else:
+                    print "Pass Incorrecto"
+                    form = KeyCheckForm()
+                    msg = "Password Incorrecto"
+                    return render(request, 'blog/key_check.html', {'form': form,
+                                                        'posts': posts,
+                                                        'msg': msg})
         form = KeyCheckForm()
         return render(request, 'blog/key_check.html', {'form': form ,
                                                         'posts': posts})

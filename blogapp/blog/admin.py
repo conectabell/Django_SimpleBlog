@@ -5,4 +5,3 @@ from .models import Post
 
 #admin.site.register(Rules, RulesAdmin)
 admin.site.register(Post)
-

@@ -7,7 +7,7 @@
     {% for post in posts %}
         <div class="boxpost-list">
             <h2><a href="{% url 'blog.views.post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-            <h4>{% if post.crypt == '1' %}<img src="{% static 'img/icons/lock.png' %}" />{% endif %}<a href="{% url 'blog.views.post_detail' pk=post.pk %}"><img src="{% static 'img/icons/eye.png' %}" /></a><a href="{% url 'blog.views.post_edit' pk=post.pk %}"><img src="{% static 'img/icons/edit.png' %}" /></a><a href="{% url 'blog.views.post_edit' pk=post.pk %}"><img src="{% static 'img/icons/delete.png' %}" /></a>Publicado: {{ post.published_date }} por {{post.author}}<br></h4>
+            <h4>{% if post.crypt == '1' %}<img src="{% static 'img/icons/lock.png' %}" />{% endif %}<a href="{% url 'blog.views.post_detail' pk=post.pk %}"><img src="{% static 'img/icons/eye.png' %}" /></a><a href="{% url 'blog.views.post_edit' pk=post.pk %}"><img src="{% static 'img/icons/edit.png' %}" /></a><a href="{% url 'blog.views.post_delete' pk=post.pk %}"><img src="{% static 'img/icons/delete.png' %}" /></a>Publicado: {{ post.published_date }} por {{post.author}}<br></h4>
         </div>
     {% endfor %}
 {% endblock content %}

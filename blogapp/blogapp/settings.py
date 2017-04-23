@@ -108,3 +108,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+KEY_SESSION = "A$h5s9v/hbvFgbVCy&zas$6yU$ygbv/uhghjhgxDDVbhgfcx"
